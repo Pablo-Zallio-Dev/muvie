@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+
+@font-face {
+      font-family: "Geist";
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url("/src/assets/Geist-VariableFont_wght.woff2") format("woff2");
+}
+
+:root {
+      --background: #0F1115;
+      --background-hero: #232323d1;
+      --color-title: #F1F5F9;
+      --bg-input: #383e49;
+      --stroke: #0da6f2;
+      --description-text: #aeaeae;
+}
+
+@theme {
+      /* Custom  Breackpoint */
+
+      --breakpoint-s: 30rem;
+      --breakpoint-xs: 22rem;
+
+      --text-xxs: .65rem;
+
+
+
+      --font-geist: "Geist";
+      --font-primary: var(--font-geist);
+      /* Geist por defecto */
+
+      --color-background: var(--background);
+      --color-background-hero: var(--background-hero);
+      --color-color-title: var(--color-title);
+      --color-bg-input: var(--bg-input);
+      --color-stroke: var(--stroke);
+      --color-description-text: var(--description-text)
+      
+}
+
+
+body {
+      font-family: var(--font-primary);
+      background-color: var(--background);
+      color: #fff;
+}
+
+
