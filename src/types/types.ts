@@ -1,4 +1,4 @@
-export interface Movie {
+export interface MovieDTO{
   adult: boolean;
   backdrop_path: string | null;
   genre_ids: number[];
@@ -15,6 +15,19 @@ export interface Movie {
   vote_count: number;
 }
 
+export interface Movie{
+  backdropUrl: string ;
+  genres: string[];
+  id: number;
+  originalLanguage: string;
+  originalTitle: string;
+  overview: string;
+  posterUrl: string;
+  year: string;
+  title: string;
+  scoreAverage: number;
+}
+
 export interface MovieSection {
       title: string
       loading: boolean
@@ -25,4 +38,17 @@ export interface MovieSection {
 export interface Genre {
       id: number;
       name: string
+}
+
+export type GetGerne = {
+      genre: Genre[],
+      isLoading: boolean,
+      isError: boolean
+      fetchGenre: () => Promise<void>
+}
+
+export interface MovieSelectionState {
+  selectedMovie: Movie | null;
+  setSelectedMovie: (movie: Movie) => void;
+  clearSelectedMovie: () => void;
 }

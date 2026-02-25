@@ -11,6 +11,7 @@
 
 :root {
       --background: #0F1115;
+      --background-details: #1c1f27;
       --background-hero: #232323d1;
       --color-title: #F1F5F9;
       --bg-input: #383e49;
@@ -26,13 +27,15 @@
 
       --text-xxs: .65rem;
 
-
+      /* shadow */
+      --shadow-box: 3px 3px 3px rgba(74, 74, 78, 0.8);
 
       --font-geist: "Geist";
       --font-primary: var(--font-geist);
       /* Geist por defecto */
 
       --color-background: var(--background);
+      --color-background-details: var(--background-details);
       --color-background-hero: var(--background-hero);
       --color-color-title: var(--color-title);
       --color-bg-input: var(--bg-input);
@@ -46,6 +49,10 @@ body {
       font-family: var(--font-primary);
       background-color: var(--background);
       color: #fff;
+}
+
+html {
+  scrollbar-gutter: stable;
 }
 
 

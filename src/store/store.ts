@@ -1,13 +1,8 @@
 import { create } from "zustand";
-import type { Genre } from "../types/types";
 import { getGenres } from "../services/movieServices";
+import type { GetGerne, MovieSelectionState } from "../types/types";
 
-type GetGerne = {
-      genre: Genre[],
-      isLoading: boolean,
-      isError: boolean
-      fetchGenre: () => Promise<void>
-}
+
 
 export const useGetGenre = create<GetGerne>(( set ) => ({
       genre: [],
@@ -26,3 +21,13 @@ export const useGetGenre = create<GetGerne>(( set ) => ({
       } 
 
 }))   
+
+export const useMovieSelection = create<MovieSelectionState>((set) => ({
+      selectedMovie: null,
+      setSelectedMovie:(movie) => set({
+            selectedMovie: movie
+      }),
+      clearSelectedMovie:() => set({
+            selectedMovie: null
+      })
+}))
