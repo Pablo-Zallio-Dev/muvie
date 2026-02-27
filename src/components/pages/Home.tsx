@@ -14,8 +14,10 @@ const Home = () => {
 
       const query = useSearchQuery((state) => state.searchQuery)
       const movieResults = useSearchQuery((state) => state.movieResults)
-
       const fetchGenre = useGetGenre((state) => (state.fetchGenre))
+      const genresLoading = useGetGenre((state) => state.isLoading); // Agrega este estado a tu store de géneros
+
+
       useEffect(() => {
 
             fetchGenre()
@@ -23,6 +25,12 @@ const Home = () => {
       }, [fetchGenre])
 
       const { loading, movies, error } = useMovies({ category: 'now_playing' })
+      if (loading || genresLoading) {
+            return (
+                  <LoadingMovies />
+            )
+      }
+
       if (error) {
             return (
                   <ErrorMovie />
@@ -30,11 +38,6 @@ const Home = () => {
       }
 
 
-      if (loading) {
-            return (
-                  <LoadingMovies />
-            )
-      }
       return (
             <>
 
@@ -43,8 +46,12 @@ const Home = () => {
                               ? (<MovieSearch title={query} movies={movieResults} loading={loading} error={error} />)
                               : (
                                     <>
-
-                                          <BannerMovie movie={movies[0]} />
+                                          {/* Solo mostramos el Banner si el array TIENE contenido */}
+                                          {movies && movies.length > 0 ? (
+                                                <BannerMovie movie={movies[0]} />
+                                          ) : (
+                                                <LoadingMovies /> // Si no hay error pero el array está vacío, seguimos esperando
+                                          )}
                                           <MovieSection />
                                     </>
 

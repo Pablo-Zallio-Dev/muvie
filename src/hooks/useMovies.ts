@@ -15,6 +15,10 @@ const useMovies = ({ category }: { category: string }) => {
       const genres = useGetGenre((state) => state.genre)
 
       useEffect(() => {
+
+            if (genres.length === 0) return;
+
+
             const controller = new AbortController();
             const { signal } = controller;
 
@@ -29,7 +33,10 @@ const useMovies = ({ category }: { category: string }) => {
 
 
                         setState({ movies: movieAdapted, loading: false, error: false });
-                  } catch {
+                  } catch (err) {
+                        if (err instanceof Error && (err.name === 'AbortError' || err.name === 'CanceledError')) {
+                              return;
+                        }
                         setState({ movies: [], loading: false, error: true });
                   }
             }

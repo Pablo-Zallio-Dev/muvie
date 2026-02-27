@@ -7,7 +7,7 @@ import { movieAdapter } from "../adapters/movie.adapter";
 
 export const useGetGenre = create<GetGerne>((set) => ({
       genre: [],
-      isLoading: false,
+      isLoading: true,
       isError: false,
       fetchGenre: async () => {
             set({ isLoading: true, isError: false })
