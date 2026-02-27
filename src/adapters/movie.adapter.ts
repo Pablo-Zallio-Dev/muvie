@@ -2,11 +2,8 @@ import type { Genre, MovieDTO } from "../types/types"
 import imageError from '../assets/images/image_error.webp'
 
 export const movieAdapter = (movie: MovieDTO, genre: Genre[]) => {
-
-
-
       return {
-            backdropUrl: movie.backdrop_path ? `${import.meta.env.VITE_BASE_URL_IMAGE}${movie.backdrop_path}` : imageError,
+            backdropUrl: movie.backdrop_path ? `${import.meta.env.VITE_BASE_URL_IMAGE}${movie.backdrop_path}` : `${import.meta.env.VITE_BASE_URL_IMAGE}${movie.poster_path}`,
             genres: movie.genre_ids.map((id) =>
                   genre.find(g => g.id === id)?.name || 'Género Desconocido'
             ),
@@ -20,8 +17,4 @@ export const movieAdapter = (movie: MovieDTO, genre: Genre[]) => {
             scoreAverage: Number(movie.vote_average.toFixed(1)),
 
       }
-
-
-
 }
-

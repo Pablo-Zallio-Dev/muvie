@@ -15,7 +15,6 @@ const MovieDetails = () => {
                   if (e.key === 'Escape') {
                         clearSelectedMovie()
                   }
-
             }
 
             if (selectedMovie) {
@@ -29,22 +28,12 @@ const MovieDetails = () => {
                   document.body.style.overflow = 'auto';
             }
 
-
-
-
             return () => {
                   document.body.style.overflow = 'auto';
                   window.removeEventListener('keydown', pressEsc)
             };
 
-
-
-
       }, [selectedMovie, clearSelectedMovie])
-
-
-
-
 
       return (
             <>
@@ -54,12 +43,12 @@ const MovieDetails = () => {
 
                               <article className=" fixed top-0 left-0 z-50 flex justify-center items-center w-full h-full px-4 bg-slate-600/50 " onClick={clearSelectedMovie} >
                                     <section className=" flex flex-col items-center w-190  bg-background-details p-6 rounded-2xl " onClick={(e) => e.stopPropagation()}>
-                                          <div className="relative">
+                                          <div className="relative ">
                                                 <section className=" absolute top-0 left-0 w-full h-full bg-linear-to-t from-background-details to-slate-0 " />
-                                                <img src={selectedMovie.backdropUrl} alt="" className={clsx("w-180 h-auto rounded-t-lg object-cover", {' h-100  ': selectedMovie.backdropUrl} )} loading="lazy" />
+                                                <img src={selectedMovie.backdropUrl} alt={`Imagen de la pelicula ${selectedMovie.title} en la tarjeta de detalles`} className={clsx("w-180 min-h-100  rounded-t-lg object-cover", { ' h-100  ': selectedMovie.backdropUrl })} loading="lazy" />
 
                                           </div>
-                                          <div className="  py-12 max-w-lg ">
+                                          <div className="  py-12  ">
                                                 <h1 className=" text-lg sm:text-xl font-bold "> {selectedMovie.title} </h1>
                                                 <section className=" flex items-center gap-4  text-xs ">
                                                       <p className=" text-xxs "> {selectedMovie.year} </p>
@@ -75,7 +64,7 @@ const MovieDetails = () => {
                                                 </section>
                                           </div>
                                           <button className=" flex flex-col gap-1 items-center self-center px-6 py-1 shadow-box border border-gray-700/20 rounded-full " onClick={clearSelectedMovie} >
-                                                <img src={iconBack} alt="" className=" w-4 " />
+                                                <img src={iconBack} alt="Icono de vuelta atras" className=" w-4 " />
                                                 <p className=" text-xs ">Inicio</p>
                                           </button>
 

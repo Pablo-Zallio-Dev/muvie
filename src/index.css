@@ -6,7 +6,7 @@
       font-style: normal;
       font-weight: 400 700;
       font-display: swap;
-      src: url("/src/assets/Geist-VariableFont_wght.woff2") format("woff2");
+      src: url("/src/assets/Geist/Geist-VariableFont_wght.woff2") format("woff2");
 }
 
 :root {
@@ -21,19 +21,26 @@
 
 @theme {
       /* Custom  Breackpoint */
-
       --breakpoint-s: 30rem;
       --breakpoint-xs: 22rem;
+      /* --------------***--------------- */
 
+      /* Text size */
       --text-xxs: .65rem;
+      /* --------------***--------------- */
+
 
       /* shadow */
       --shadow-box: 3px 3px 3px rgba(74, 74, 78, 0.8);
+      /* --------------***--------------- */
 
+      /* Font */
       --font-geist: "Geist";
       --font-primary: var(--font-geist);
-      /* Geist por defecto */
+      /* --------------***--------------- */
 
+
+      /* Colores */
       --color-background: var(--background);
       --color-background-details: var(--background-details);
       --color-background-hero: var(--background-hero);
@@ -41,6 +48,7 @@
       --color-bg-input: var(--bg-input);
       --color-stroke: var(--stroke);
       --color-description-text: var(--description-text)
+      /* ---------------***--------------- */
       
 }
 
